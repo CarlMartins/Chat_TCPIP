@@ -9,13 +9,12 @@ using System.Threading;
 namespace Servidor
 {
     
-    class Server
+    class Servidor
     {
         public IPAddress EnderecoIp;
         public int Porta;
 
         public static Hashtable Usuarios = new Hashtable(10);
-        public static Hashtable Conexoes = new Hashtable(10);
 
         public Mensagem Mensagem = new Mensagem();
         public TcpClient TcpServer = new TcpClient();
@@ -26,7 +25,7 @@ namespace Servidor
 
         bool ServidorRodando = false;
 
-        public Server(IPAddress enderecoIp, int porta)
+        public Servidor(IPAddress enderecoIp, int porta)
         {
             EnderecoIp = enderecoIp;
             Porta = porta;
@@ -53,12 +52,12 @@ namespace Servidor
         {
             StreamWriter mensagemUsuario;
 
-            OnStatusChanged($"{usuario} disse: {mensagem}");
+            OnStatusChanged($"{usuario}: {mensagem}");
 
             foreach (TcpClient cliente in Usuarios.Values)
             {
                 mensagemUsuario = new StreamWriter(cliente.GetStream());
-                mensagemUsuario.WriteLine($"{usuario} disse: {mensagem}");
+                mensagemUsuario.WriteLine($"{usuario}: {mensagem}");
                 mensagemUsuario.Flush();
             }
         }

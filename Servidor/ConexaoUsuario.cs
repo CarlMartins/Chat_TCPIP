@@ -35,16 +35,16 @@ namespace Servidor
 
             if (_usuarioAtual != "")
             {
-                if (Server.Usuarios.Contains(_usuarioAtual))
+                if (Servidor.Usuarios.Contains(_usuarioAtual))
                 {
-                    //_enviador.WriteLine("0|Este nome de usuário já existe.");
+                    _enviador.WriteLine("0|Este nome de usuário já existe.");
                     _enviador.Flush();
                     FechaConexao();
                     return;
                 }
                 else if (_usuarioAtual.ToLower() == "administrador")
                 {
-                    //_enviador.WriteLine("0|Este nome de usuário é reservado.");
+                    _enviador.WriteLine("0|Este nome de usuário é reservado.");
                     _enviador.Flush();
                     FechaConexao();
                     return;
@@ -66,18 +66,16 @@ namespace Servidor
 
         public void IncluirUsuario(TcpClient usuario, string nomeUsuario)
         {
-            Server.Usuarios.Add(nomeUsuario, usuario);
-            Server.Conexoes.Add(usuario, nomeUsuario);
-            Server.EnviarMensagemAdmin($"{nomeUsuario} se conectou.");
+            Servidor.Usuarios.Add(nomeUsuario, usuario);
+            Servidor.EnviarMensagemAdmin($"{nomeUsuario} se conectou.");
         }
 
-        public void RemoverUsuario(TcpClient usuario)
+        public void RemoverUsuario(string usuarioAtual)
         {
-            if (Server.Conexoes[usuario] != null)
+            if (Servidor.Usuarios[usuarioAtual] != null)
             {
-                Server.EnviarMensagemAdmin($"{Server.Conexoes[usuario]} se desconectou.");
-                Server.Usuarios.Remove(Server.Conexoes[usuario]);
-                Server.Conexoes.Remove(usuario);
+                Servidor.Usuarios.Remove(usuarioAtual);
+                Servidor.EnviarMensagemAdmin($"{usuarioAtual} se desconectou.");
             }
         }
 
@@ -85,14 +83,14 @@ namespace Servidor
         {
             try
             {
-                while ((_resposta = _receptor.ReadLine()) != "")
+                while ((_resposta = _receptor.ReadLine()) != null)
                 {
-                    Server.ValidarMensagem(_usuarioAtual, _resposta);
+                    Servidor.ValidarMensagem(_usuarioAtual, _resposta);
                 }
             }
             catch (Exception)
             { 
-                RemoverUsuario(_tcpClient);
+                RemoverUsuario(_usuarioAtual);
             }
         }
 

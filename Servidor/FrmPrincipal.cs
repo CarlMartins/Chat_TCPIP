@@ -26,8 +26,8 @@ namespace ChatAPS
                 IPAddress enderecoIp = IPAddress.Parse(txbIp.Text);
                 int porta = (int) upDownPort.Value;
 
-                Server servidor = new Server(enderecoIp, porta);
-                Server.StatusChanged += OnServidorStatusChanged;
+                Servidor.Servidor servidor = new Servidor.Servidor(enderecoIp, porta);
+                Servidor.Servidor.StatusChanged += OnServidorStatusChanged;
 
                 servidor.IniciarServidor();
                 txbLog.AppendText("Esperando conexões...\r\n");

@@ -73,20 +73,21 @@ namespace ChatAPS
             this.upDownPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.upDownPort.Location = new System.Drawing.Point(320, 12);
             this.upDownPort.Maximum = new decimal(new int[] {
-            8000,
+            8080,
             0,
             0,
             0});
             this.upDownPort.Minimum = new decimal(new int[] {
-            1000,
+            80,
             0,
             0,
             0});
             this.upDownPort.Name = "upDownPort";
             this.upDownPort.Size = new System.Drawing.Size(137, 29);
             this.upDownPort.TabIndex = 3;
+            this.upDownPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.upDownPort.Value = new decimal(new int[] {
-            1000,
+            80,
             0,
             0,
             0});
