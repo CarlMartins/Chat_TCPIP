@@ -10,6 +10,7 @@ namespace Cliente
             InitializeComponent();
             txbMensagem.Focus();
             Cliente.StatusChanged += OnStatusChanged;
+            lblNomeUsuario.Text += Cliente._nomeUsuario;
         }
 
         private void Enviar()

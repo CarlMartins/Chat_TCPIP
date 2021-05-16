@@ -96,15 +96,29 @@ namespace Servidor
 
         public void FecharServidor()
         {
+            //ThreadListener.Abort();
+            ServidorRodando = false;
+
+            ListenerServidor.Stop();
+
             TcpServer.Close();
+            
         }
 
         public void ManterServidor()
         {
             while (ServidorRodando)
             {
-                TcpServer = ListenerServidor.AcceptTcpClient();
-                ConexaoUsuario novaConexao = new ConexaoUsuario(TcpServer);
+                try
+                {
+                    TcpServer = ListenerServidor.AcceptTcpClient();
+                    ConexaoUsuario novaConexao = new ConexaoUsuario(TcpServer);
+                }
+                catch (Exception)
+                {
+                    EnderecoIp = null;
+                    Porta = 0;
+                }
             }
         }
     }

@@ -7,7 +7,7 @@ namespace Cliente
 {
     class Cliente
     {
-        private string _nomeUsuario;
+        public static string _nomeUsuario;
         private int _porta;
 
         private string _enderecoIp;

@@ -32,6 +32,7 @@ namespace Cliente
             this.txbMensagem = new System.Windows.Forms.TextBox();
             this.txbLog = new System.Windows.Forms.TextBox();
             this.btnEnviar = new System.Windows.Forms.Button();
+            this.lblNomeUsuario = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txbMensagem
@@ -71,12 +72,23 @@ namespace Cliente
             this.btnEnviar.UseVisualStyleBackColor = true;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
+            // lblNomeUsuario
+            // 
+            this.lblNomeUsuario.AutoSize = true;
+            this.lblNomeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNomeUsuario.Location = new System.Drawing.Point(12, 19);
+            this.lblNomeUsuario.Name = "lblNomeUsuario";
+            this.lblNomeUsuario.Size = new System.Drawing.Size(165, 24);
+            this.lblNomeUsuario.TabIndex = 3;
+            this.lblNomeUsuario.Text = "Conectado como: ";
+            // 
             // frmChat
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(400, 450);
+            this.Controls.Add(this.lblNomeUsuario);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.txbMensagem);
             this.Controls.Add(this.txbLog);
@@ -94,5 +106,6 @@ namespace Cliente
         private System.Windows.Forms.TextBox txbMensagem;
         private System.Windows.Forms.TextBox txbLog;
         private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.Label lblNomeUsuario;
     }
 }

@@ -8,6 +8,10 @@ namespace ChatAPS
     public partial class FrmPrincipal : Form
     {
         private delegate void AtualizaStatusCallBack(string mensagem);
+
+        private bool _servidorRodando = false;
+        private Servidor.Servidor _servidor;
+
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -15,26 +19,40 @@ namespace ChatAPS
 
         private void btnCriarServidor_Click(object sender, EventArgs e)
         {
-            if (txbIp.Text == "")
+            if(_servidorRodando == false)
             {
-                MessageBox.Show("Informe o endereço de IP");
-                txbIp.Focus();
-                return;
-            }
-            try
-            {
-                IPAddress enderecoIp = IPAddress.Parse(txbIp.Text);
-                int porta = (int) upDownPort.Value;
+                if (txbIp.Text == "")
+                {
+                    MessageBox.Show("Informe o endereço de IP");
+                    txbIp.Focus();
+                    return;
+                }
+                try
+                {
+                    IPAddress enderecoIp = IPAddress.Parse(txbIp.Text);
+                    int porta = (int)upDownPort.Value;
 
-                Servidor.Servidor servidor = new Servidor.Servidor(enderecoIp, porta);
-                Servidor.Servidor.StatusChanged += OnServidorStatusChanged;
+                    _servidor = new Servidor.Servidor(enderecoIp, porta);
+                    Servidor.Servidor.StatusChanged += OnServidorStatusChanged;
 
-                servidor.IniciarServidor();
-                txbLog.AppendText("Esperando conexões...\r\n");
+                    _servidor.IniciarServidor();
+                    txbLog.Text = "";
+                    txbLog.AppendText("Esperando conexões...\r\n");
+
+                    btnCriarServidor.Text = "Fechar Servidor";
+                    _servidorRodando = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                _servidorRodando = false;
+                _servidor.FecharServidor();
+                btnCriarServidor.Text = "Criar servidor";
+                Servidor.Servidor.StatusChanged -= OnServidorStatusChanged;
             }
         }
 
