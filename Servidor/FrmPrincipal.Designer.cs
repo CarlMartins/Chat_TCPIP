@@ -71,6 +71,11 @@ namespace ChatAPS
             // upDownPort
             // 
             this.upDownPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.upDownPort.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.upDownPort.Location = new System.Drawing.Point(320, 12);
             this.upDownPort.Maximum = new decimal(new int[] {
             8080,
@@ -101,7 +106,11 @@ namespace ChatAPS
             this.Controls.Add(this.txbLog);
             this.Controls.Add(this.btnCriarServidor);
             this.Controls.Add(this.txbIp);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.MaximizeBox = false;
             this.Name = "FrmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.upDownPort)).EndInit();
             this.ResumeLayout(false);

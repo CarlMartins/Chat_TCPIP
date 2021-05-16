@@ -121,6 +121,7 @@ namespace Cliente
             this.Controls.Add(this.upDownPorta);
             this.Controls.Add(this.btnConectar);
             this.Controls.Add(this.txbIP);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrar";
