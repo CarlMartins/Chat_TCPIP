@@ -29,7 +29,7 @@ namespace Cliente
                 _resultado += "Endereço IP inválido\r\n";
             }
 
-            if (_nomeUsuario.Trim() == "")
+            if (_nomeUsuario.Trim() == "" || _nomeUsuario.Trim() == "Nome de usuario")
             {
                 _resultado += "Nome de usuario inválido";
             }

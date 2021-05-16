@@ -1,5 +1,4 @@
-﻿using Servidor.Entidades;
-using System;
+﻿using System;
 using System.Collections;
 using System.IO;
 using System.Net;
@@ -16,7 +15,6 @@ namespace Servidor
 
         public static Hashtable Usuarios = new Hashtable(10);
 
-        public Mensagem Mensagem = new Mensagem();
         public TcpClient TcpServer = new TcpClient();
 
         public static EventHandler<StatusChangedEventArgs> StatusChanged;
