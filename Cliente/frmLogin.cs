@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -18,7 +19,6 @@ namespace Cliente
             InitializeComponent();
         }
 
-
         private void btnConectar_Click(object sender, EventArgs e)
         {
             Validacao validacao = new Validacao(txbIP.Text, txbNomeUsuario.Text);
@@ -31,9 +31,10 @@ namespace Cliente
             else
             {
                 Cliente cliente = new Cliente(
-                txbIP.Text,
-                int.Parse(upDownPorta.Text),
-                txbNomeUsuario.Text);
+                    txbIP.Text,
+                    int.Parse(upDownPorta.Text),
+                    txbNomeUsuario.Text);
+
                 cliente.Conectar();
                 MessageBox.Show(cliente.RespostaLogin.Substring(2));
 
@@ -51,7 +52,6 @@ namespace Cliente
         {
             Application.Exit();
         }
-
 
         private void txbNomeUsuario_Leave(object sender, EventArgs e)
         {
@@ -88,6 +88,17 @@ namespace Cliente
         {
             WindowState = FormWindowState.Minimized;
              
+        }
+
+        string path = @"D:\Documentos\Faculdade\Semestres\5º Semestre\APS\ChatAPS\Cliente";
+        private void btnConectar_MouseHover(object sender, EventArgs e)
+        {
+            btnConectar.BackgroundImage = Image.FromFile(path + "\\Properties\\Resources\\botao2.png");
+        }
+
+        private void btnConectar_MouseLeave(object sender, EventArgs e)
+        {
+            btnConectar.BackgroundImage = Image.FromFile(path + "\\Properties\\Resources\\botao1.png");
         }
     }
 }

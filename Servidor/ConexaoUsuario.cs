@@ -8,7 +8,7 @@ namespace Servidor
     class ConexaoUsuario
     {
         private TcpClient _tcpClient;
-        private Thread _threadSender;
+        private Thread _threadValidacao;
         private StreamReader _receptor;
         private StreamWriter _enviador;
         private string _usuarioAtual;
@@ -17,8 +17,8 @@ namespace Servidor
         public ConexaoUsuario(TcpClient cliente)
         {
             _tcpClient = cliente;
-            _threadSender = new Thread(ValidarUsuario);
-            _threadSender.Start();
+            _threadValidacao = new Thread(ValidarUsuario);
+            _threadValidacao.Start();
         }
 
         private void AceitarUsuario(TcpClient cliente, string usuarioAtual)

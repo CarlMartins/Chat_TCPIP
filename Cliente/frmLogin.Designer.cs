@@ -65,19 +65,23 @@ namespace Cliente
             // 
             // btnConectar
             // 
-            this.btnConectar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(132)))), ((int)(((byte)(105)))));
+            this.btnConectar.BackColor = System.Drawing.Color.Transparent;
+            this.btnConectar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConectar.BackgroundImage")));
+            this.btnConectar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnConectar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConectar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnConectar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(132)))), ((int)(((byte)(105)))));
+            this.btnConectar.FlatAppearance.BorderSize = 0;
             this.btnConectar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConectar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnConectar.ForeColor = System.Drawing.Color.White;
-            this.btnConectar.Location = new System.Drawing.Point(41, 356);
+            this.btnConectar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(132)))), ((int)(((byte)(105)))));
+            this.btnConectar.Location = new System.Drawing.Point(46, 371);
             this.btnConectar.Name = "btnConectar";
             this.btnConectar.Size = new System.Drawing.Size(211, 34);
             this.btnConectar.TabIndex = 1;
-            this.btnConectar.Text = "Conectar";
             this.btnConectar.UseVisualStyleBackColor = false;
             this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
+            this.btnConectar.MouseLeave += new System.EventHandler(this.btnConectar_MouseLeave);
+            this.btnConectar.MouseHover += new System.EventHandler(this.btnConectar_MouseHover);
             // 
             // upDownPorta
             // 
@@ -238,7 +242,6 @@ namespace Cliente
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(132)))), ((int)(((byte)(105)))));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(293, 450);
             this.Controls.Add(this.pnlMoverJanela);
             this.Controls.Add(this.lblBarra);

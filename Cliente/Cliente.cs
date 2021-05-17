@@ -49,7 +49,9 @@ namespace Cliente
                 _escritorConexao.WriteLine(_nomeUsuario);
                 _escritorConexao.Flush();
 
-                if ((RespostaLogin = _leitorConexao.ReadLine())[0] == '1')
+                RespostaLogin = _leitorConexao.ReadLine();
+
+                if (RespostaLogin[0] == '1')
                 {
                     RespostaLogin = ("1|Conectado com sucesso");
                     _threadCliente = new Thread(EscutarMensagens);
