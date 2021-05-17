@@ -53,6 +53,11 @@ namespace Cliente
             Application.Exit();
         }
 
+        private void lblMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
         private void txbNomeUsuario_Leave(object sender, EventArgs e)
         {
             if(txbNomeUsuario.Text.Trim() == "")
@@ -84,21 +89,17 @@ namespace Cliente
             }
         }
 
-        private void lblMinimizar_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-             
-        }
+
 
         string path = @"D:\Documentos\Faculdade\Semestres\5º Semestre\APS\ChatAPS\Cliente";
         private void btnConectar_MouseHover(object sender, EventArgs e)
         {
-            btnConectar.BackgroundImage = Image.FromFile(path + "\\Properties\\Resources\\botao2.png");
+            btnConectar.BackgroundImage = Image.FromFile(path + "\\Properties\\Resources\\botao_conectar2.png");
         }
 
         private void btnConectar_MouseLeave(object sender, EventArgs e)
         {
-            btnConectar.BackgroundImage = Image.FromFile(path + "\\Properties\\Resources\\botao1.png");
+            btnConectar.BackgroundImage = Image.FromFile(path + "\\Properties\\Resources\\botao_conectar1.png");
         }
     }
 }

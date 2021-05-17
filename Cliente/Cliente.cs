@@ -39,7 +39,6 @@ namespace Cliente
             try
             {
                 _tcpServidor.Connect(_enderecoIp, _porta);
-                _conectado = true;
 
                 _escritorConexao = new StreamWriter(_tcpServidor.GetStream());
                 _leitorConexao = new StreamReader(_tcpServidor.GetStream());
