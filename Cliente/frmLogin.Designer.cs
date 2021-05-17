@@ -42,10 +42,13 @@ namespace Cliente
             this.lblSair = new System.Windows.Forms.Label();
             this.pictureBoxUser = new System.Windows.Forms.PictureBox();
             this.lblBarra = new System.Windows.Forms.Label();
+            this.pnlMoverJanela = new System.Windows.Forms.Panel();
+            this.lblMinimizar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.upDownPorta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
+            this.pnlMoverJanela.SuspendLayout();
             this.SuspendLayout();
             // 
             // txbIP
@@ -87,7 +90,7 @@ namespace Cliente
             0,
             0,
             0});
-            this.upDownPorta.Location = new System.Drawing.Point(217, 267);
+            this.upDownPorta.Location = new System.Drawing.Point(227, 267);
             this.upDownPorta.Maximum = new decimal(new int[] {
             8080,
             0,
@@ -99,9 +102,8 @@ namespace Cliente
             0,
             0});
             this.upDownPorta.Name = "upDownPorta";
-            this.upDownPorta.Size = new System.Drawing.Size(64, 25);
+            this.upDownPorta.Size = new System.Drawing.Size(54, 25);
             this.upDownPorta.TabIndex = 2;
-            this.upDownPorta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.upDownPorta.Value = new decimal(new int[] {
             80,
             0,
@@ -130,9 +132,9 @@ namespace Cliente
             this.pictureBoxLogo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.ErrorImage")));
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
             this.pictureBoxLogo.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.InitialImage")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(7, 12);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(3, 36);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(278, 233);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(278, 224);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 4;
             this.pictureBoxLogo.TabStop = false;
@@ -178,7 +180,7 @@ namespace Cliente
             this.lblSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSair.ForeColor = System.Drawing.Color.White;
-            this.lblSair.Location = new System.Drawing.Point(261, 9);
+            this.lblSair.Location = new System.Drawing.Point(260, 4);
             this.lblSair.Name = "lblSair";
             this.lblSair.Size = new System.Drawing.Size(24, 24);
             this.lblSair.TabIndex = 9;
@@ -207,6 +209,30 @@ namespace Cliente
             this.lblBarra.TabIndex = 11;
             this.lblBarra.Text = ":";
             // 
+            // pnlMoverJanela
+            // 
+            this.pnlMoverJanela.Controls.Add(this.lblMinimizar);
+            this.pnlMoverJanela.Controls.Add(this.lblSair);
+            this.pnlMoverJanela.Location = new System.Drawing.Point(3, 1);
+            this.pnlMoverJanela.Name = "pnlMoverJanela";
+            this.pnlMoverJanela.Size = new System.Drawing.Size(288, 32);
+            this.pnlMoverJanela.TabIndex = 12;
+            this.pnlMoverJanela.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlMoverJanela_MouseDown);
+            this.pnlMoverJanela.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlMoverJanela_MouseMove);
+            // 
+            // lblMinimizar
+            // 
+            this.lblMinimizar.AutoSize = true;
+            this.lblMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMinimizar.ForeColor = System.Drawing.Color.White;
+            this.lblMinimizar.Location = new System.Drawing.Point(231, 4);
+            this.lblMinimizar.Name = "lblMinimizar";
+            this.lblMinimizar.Size = new System.Drawing.Size(23, 24);
+            this.lblMinimizar.TabIndex = 10;
+            this.lblMinimizar.Text = "─";
+            this.lblMinimizar.Click += new System.EventHandler(this.lblMinimizar_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -214,9 +240,9 @@ namespace Cliente
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(132)))), ((int)(((byte)(105)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(293, 450);
+            this.Controls.Add(this.pnlMoverJanela);
             this.Controls.Add(this.lblBarra);
             this.Controls.Add(this.pictureBoxUser);
-            this.Controls.Add(this.lblSair);
             this.Controls.Add(this.pictureBoxIP);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -234,6 +260,8 @@ namespace Cliente
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).EndInit();
+            this.pnlMoverJanela.ResumeLayout(false);
+            this.pnlMoverJanela.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,6 +281,8 @@ namespace Cliente
         private System.Windows.Forms.Label lblSair;
         private System.Windows.Forms.PictureBox pictureBoxUser;
         private System.Windows.Forms.Label lblBarra;
+        private System.Windows.Forms.Panel pnlMoverJanela;
+        private System.Windows.Forms.Label lblMinimizar;
     }
 }
 

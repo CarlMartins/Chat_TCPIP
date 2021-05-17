@@ -49,7 +49,7 @@ namespace Cliente
 
         private void lblSair_Click(object sender, EventArgs e)
         {
-            Dispose();
+            Application.Exit();
         }
 
 
@@ -67,6 +67,27 @@ namespace Cliente
             {
                 txbNomeUsuario.Text = "";
             }
+        }
+
+        private Point _mouse;
+        private void pnlMoverJanela_MouseDown(object sender, MouseEventArgs e)
+        {
+            _mouse = new Point(e.X, e.Y);
+        }
+
+        private void pnlMoverJanela_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                Left += e.X - _mouse.X;
+                Top += e.Y - _mouse.Y;
+            }
+        }
+
+        private void lblMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+             
         }
     }
 }
