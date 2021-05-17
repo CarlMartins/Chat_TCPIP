@@ -94,7 +94,6 @@ namespace Servidor
 
         public void FecharServidor()
         {
-            //ThreadListener.Abort();
             ServidorRodando = false;
 
             ListenerServidor.Stop();

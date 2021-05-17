@@ -33,6 +33,14 @@ namespace Servidor
             _enviador = new StreamWriter(_tcpClient.GetStream());
             _usuarioAtual = _receptor.ReadLine();
 
+            if(Servidor.Usuarios.Count >= 10)
+            {
+                _enviador.WriteLine("0|Limite de usuários atingido.");
+                _enviador.Flush();
+                FechaConexao();
+                return;
+            }
+
             if (_usuarioAtual != "")
             {
                 if (Servidor.Usuarios.Contains(_usuarioAtual))

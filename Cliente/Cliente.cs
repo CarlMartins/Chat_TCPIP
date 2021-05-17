@@ -20,8 +20,6 @@ namespace Cliente
 
         public string RespostaLogin;
 
-        private bool _conectado = false;
-
 
         public Cliente(string enderecoIp, int porta, string nomeUsuario)
         {
@@ -74,9 +72,16 @@ namespace Cliente
 
         public void EscutarMensagens()
         {
-            while (true)
+            try
             {
-                OnStatusChanged(_leitorConexao.ReadLine());
+                while (true)
+                {
+                    OnStatusChanged(_leitorConexao.ReadLine());
+                }
+            }
+            catch (Exception)
+            {
+                OnStatusChanged("0|Problema com o servidor");
             }
         }
 
