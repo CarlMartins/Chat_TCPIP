@@ -65,12 +65,12 @@ namespace Cliente
             this.txbLog.Cursor = System.Windows.Forms.Cursors.No;
             this.txbLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txbLog.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txbLog.Location = new System.Drawing.Point(3, 0);
+            this.txbLog.Location = new System.Drawing.Point(7, 4);
             this.txbLog.Multiline = true;
             this.txbLog.Name = "txbLog";
             this.txbLog.ReadOnly = true;
             this.txbLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txbLog.Size = new System.Drawing.Size(374, 330);
+            this.txbLog.Size = new System.Drawing.Size(370, 325);
             this.txbLog.TabIndex = 0;
             // 
             // btnEnviar
@@ -95,7 +95,7 @@ namespace Cliente
             this.lblMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblMinimizar.ForeColor = System.Drawing.Color.White;
-            this.lblMinimizar.Location = new System.Drawing.Point(324, 7);
+            this.lblMinimizar.Location = new System.Drawing.Point(324, 4);
             this.lblMinimizar.Name = "lblMinimizar";
             this.lblMinimizar.Size = new System.Drawing.Size(23, 24);
             this.lblMinimizar.TabIndex = 10;
@@ -108,7 +108,7 @@ namespace Cliente
             this.lblSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSair.ForeColor = System.Drawing.Color.White;
-            this.lblSair.Location = new System.Drawing.Point(353, 7);
+            this.lblSair.Location = new System.Drawing.Point(353, 4);
             this.lblSair.Name = "lblSair";
             this.lblSair.Size = new System.Drawing.Size(24, 24);
             this.lblSair.TabIndex = 9;
@@ -133,7 +133,7 @@ namespace Cliente
             this.lblNomeUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblNomeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNomeUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblNomeUsuario.Location = new System.Drawing.Point(1, 2);
+            this.lblNomeUsuario.Location = new System.Drawing.Point(1, 5);
             this.lblNomeUsuario.Name = "lblNomeUsuario";
             this.lblNomeUsuario.Size = new System.Drawing.Size(160, 24);
             this.lblNomeUsuario.TabIndex = 11;

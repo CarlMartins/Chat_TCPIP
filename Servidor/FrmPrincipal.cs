@@ -1,5 +1,6 @@
 ﻿using Servidor;
 using System;
+using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
 
@@ -65,6 +66,31 @@ namespace ChatAPS
         private void AtualizaStatus(string mensagem)
         {
             txbLog.AppendText($"{mensagem}\r\n");
+        }
+
+        private void lblSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void lblMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private Point _mouse;
+        private void pnlMoverJanela_MouseDown(object sender, MouseEventArgs e)
+        {
+            _mouse = new Point(e.X, e.Y);
+        }
+
+        private void pnlMoverJanela_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Left += e.X - _mouse.X;
+                Top += e.Y - _mouse.Y;
+            }
         }
     }
 }
