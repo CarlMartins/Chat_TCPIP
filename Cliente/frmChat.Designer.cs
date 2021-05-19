@@ -37,11 +37,14 @@ namespace Cliente
             this.lblSair = new System.Windows.Forms.Label();
             this.pnlMoverJanela = new System.Windows.Forms.Panel();
             this.lblNomeUsuario = new System.Windows.Forms.Label();
-            this.pblMensagem = new System.Windows.Forms.Panel();
-            this.pblLog = new System.Windows.Forms.Panel();
+            this.pnlMensagem = new System.Windows.Forms.Panel();
+            this.pictureBoxEmoticons = new System.Windows.Forms.PictureBox();
+            this.cbEmoticons = new System.Windows.Forms.ComboBox();
+            this.pnlLog = new System.Windows.Forms.Panel();
             this.pnlMoverJanela.SuspendLayout();
-            this.pblMensagem.SuspendLayout();
-            this.pblLog.SuspendLayout();
+            this.pnlMensagem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEmoticons)).BeginInit();
+            this.pnlLog.SuspendLayout();
             this.SuspendLayout();
             // 
             // txbMensagem
@@ -63,7 +66,7 @@ namespace Cliente
             this.txbLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(252)))), ((int)(((byte)(218)))));
             this.txbLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbLog.Cursor = System.Windows.Forms.Cursors.No;
-            this.txbLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txbLog.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txbLog.Location = new System.Drawing.Point(7, 4);
             this.txbLog.Multiline = true;
@@ -141,24 +144,63 @@ namespace Cliente
             this.lblNomeUsuario.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlMoverJanela_MouseDown);
             this.lblNomeUsuario.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlMoverJanela_MouseMove);
             // 
-            // pblMensagem
+            // pnlMensagem
             // 
-            this.pblMensagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(252)))), ((int)(((byte)(218)))));
-            this.pblMensagem.Controls.Add(this.txbMensagem);
-            this.pblMensagem.Location = new System.Drawing.Point(13, 383);
-            this.pblMensagem.Name = "pblMensagem";
-            this.pblMensagem.Padding = new System.Windows.Forms.Padding(10);
-            this.pblMensagem.Size = new System.Drawing.Size(298, 55);
-            this.pblMensagem.TabIndex = 14;
+            this.pnlMensagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(252)))), ((int)(((byte)(218)))));
+            this.pnlMensagem.Controls.Add(this.pictureBoxEmoticons);
+            this.pnlMensagem.Controls.Add(this.cbEmoticons);
+            this.pnlMensagem.Controls.Add(this.txbMensagem);
+            this.pnlMensagem.Location = new System.Drawing.Point(13, 383);
+            this.pnlMensagem.Name = "pnlMensagem";
+            this.pnlMensagem.Padding = new System.Windows.Forms.Padding(10);
+            this.pnlMensagem.Size = new System.Drawing.Size(298, 55);
+            this.pnlMensagem.TabIndex = 14;
             // 
-            // pblLog
+            // pictureBoxEmoticons
             // 
-            this.pblLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(252)))), ((int)(((byte)(218)))));
-            this.pblLog.Controls.Add(this.txbLog);
-            this.pblLog.Location = new System.Drawing.Point(12, 37);
-            this.pblLog.Name = "pblLog";
-            this.pblLog.Size = new System.Drawing.Size(377, 333);
-            this.pblLog.TabIndex = 15;
+            this.pictureBoxEmoticons.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxEmoticons.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxEmoticons.Image")));
+            this.pictureBoxEmoticons.Location = new System.Drawing.Point(278, 1);
+            this.pictureBoxEmoticons.Name = "pictureBoxEmoticons";
+            this.pictureBoxEmoticons.Size = new System.Drawing.Size(20, 54);
+            this.pictureBoxEmoticons.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxEmoticons.TabIndex = 2;
+            this.pictureBoxEmoticons.TabStop = false;
+            this.pictureBoxEmoticons.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxEmoticons_MouseClick);
+            // 
+            // cbEmoticons
+            // 
+            this.cbEmoticons.DropDownWidth = 100;
+            this.cbEmoticons.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbEmoticons.FormattingEnabled = true;
+            this.cbEmoticons.Items.AddRange(new object[] {
+            "(◉ܫ◉)",
+            "(ၜ︗ၜ )",
+            "( ͡° ͜ʖ ͡°)",
+            "ʕ•ᴥ•ʔ",
+            "ಠ_ಠ",
+            "(ಥ﹏ಥ)",
+            "(ᵔᴥᵔ)",
+            "ಠ╭╮ಠ",
+            "♥‿♥",
+            "(¬_¬)",
+            "[̲̅$̲̅(̲̅5̲̅)̲̅$̲̅]",
+            "(ง\'̀-\'́)ง",
+            "(/) (°,,°) (/)"});
+            this.cbEmoticons.Location = new System.Drawing.Point(278, 19);
+            this.cbEmoticons.Name = "cbEmoticons";
+            this.cbEmoticons.Size = new System.Drawing.Size(20, 23);
+            this.cbEmoticons.TabIndex = 1;
+            this.cbEmoticons.SelectedIndexChanged += new System.EventHandler(this.cbEmoticons_SelectedIndexChanged);
+            // 
+            // pnlLog
+            // 
+            this.pnlLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(252)))), ((int)(((byte)(218)))));
+            this.pnlLog.Controls.Add(this.txbLog);
+            this.pnlLog.Location = new System.Drawing.Point(12, 37);
+            this.pnlLog.Name = "pnlLog";
+            this.pnlLog.Size = new System.Drawing.Size(377, 333);
+            this.pnlLog.TabIndex = 15;
             // 
             // frmChat
             // 
@@ -168,19 +210,21 @@ namespace Cliente
             this.ClientSize = new System.Drawing.Size(400, 450);
             this.Controls.Add(this.pnlMoverJanela);
             this.Controls.Add(this.btnEnviar);
-            this.Controls.Add(this.pblMensagem);
-            this.Controls.Add(this.pblLog);
+            this.Controls.Add(this.pnlMensagem);
+            this.Controls.Add(this.pnlLog);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmChat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Shown += new System.EventHandler(this.frmChat_Shown);
             this.pnlMoverJanela.ResumeLayout(false);
             this.pnlMoverJanela.PerformLayout();
-            this.pblMensagem.ResumeLayout(false);
-            this.pblMensagem.PerformLayout();
-            this.pblLog.ResumeLayout(false);
-            this.pblLog.PerformLayout();
+            this.pnlMensagem.ResumeLayout(false);
+            this.pnlMensagem.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEmoticons)).EndInit();
+            this.pnlLog.ResumeLayout(false);
+            this.pnlLog.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -194,7 +238,9 @@ namespace Cliente
         private System.Windows.Forms.Label lblSair;
         private System.Windows.Forms.Panel pnlMoverJanela;
         private System.Windows.Forms.Label lblNomeUsuario;
-        private System.Windows.Forms.Panel pblMensagem;
-        private System.Windows.Forms.Panel pblLog;
+        private System.Windows.Forms.Panel pnlMensagem;
+        private System.Windows.Forms.Panel pnlLog;
+        private System.Windows.Forms.PictureBox pictureBoxEmoticons;
+        private System.Windows.Forms.ComboBox cbEmoticons;
     }
 }

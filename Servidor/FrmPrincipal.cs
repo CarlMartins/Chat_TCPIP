@@ -6,14 +6,14 @@ using System.Windows.Forms;
 
 namespace ChatAPS
 {
-    public partial class FrmPrincipal : Form
+    public partial class frmServidor : Form
     {
         private delegate void AtualizaStatusCallBack(string mensagem);
 
         private bool _servidorRodando = false;
         private Servidor.Servidor _servidor;
 
-        public FrmPrincipal()
+        public frmServidor()
         {
             InitializeComponent();
         }

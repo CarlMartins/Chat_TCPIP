@@ -32,11 +32,21 @@ namespace Cliente
                 Enviar();
                 e.Handled = true;
             }
+
+            cbEmoticons.DroppedDown = false;
         }
 
         public void OnStatusChanged(object sender, StatusChangedEventArgs args)
         {
-            txbLog.AppendText($"{args.MensagemServidor}\r\n");
+            if(args.MensagemServidor[0] == '0')
+            {
+                MessageBox.Show($"{args.MensagemServidor.Substring(2)}\r\n");
+                Close();
+            } else
+            {
+                txbLog.AppendText($"{args.MensagemServidor}\r\n");
+            }
+            
         }
 
         private void frmChat_Shown(object sender, EventArgs e)
@@ -67,6 +77,19 @@ namespace Cliente
                 Left += e.X - _mouse.X;
                 Top += e.Y - _mouse.Y;
             }
+        }
+
+        private void pictureBoxEmoticons_MouseClick(object sender, MouseEventArgs e)
+        {
+            cbEmoticons.DroppedDown = true;
+        }
+
+        private void cbEmoticons_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Emoticons emoticons = new Emoticons();
+            txbMensagem.AppendText($" {emoticons.getEmoticon(cbEmoticons.SelectedIndex)}");
+            txbMensagem.Focus();
+            cbEmoticons.DroppedDown = true;
         }
     }
 }

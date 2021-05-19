@@ -1,7 +1,7 @@
 ﻿
 namespace ChatAPS
 {
-    partial class FrmPrincipal
+    partial class frmServidor
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@ namespace ChatAPS
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmServidor));
             this.txbIp = new System.Windows.Forms.TextBox();
             this.btnCriarServidor = new System.Windows.Forms.Button();
             this.txbLog = new System.Windows.Forms.TextBox();
@@ -197,7 +197,7 @@ namespace ChatAPS
             this.pnlLog.Size = new System.Drawing.Size(608, 391);
             this.pnlLog.TabIndex = 16;
             // 
-            // FrmPrincipal
+            // frmServidor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -211,9 +211,10 @@ namespace ChatAPS
             this.Controls.Add(this.btnCriarServidor);
             this.Controls.Add(this.txbIp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.MaximizeBox = false;
-            this.Name = "FrmPrincipal";
+            this.Name = "frmServidor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.upDownPort)).EndInit();
