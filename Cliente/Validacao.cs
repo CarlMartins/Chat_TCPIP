@@ -32,7 +32,18 @@ namespace Cliente
             if (_nomeUsuario.Trim() == "" || _nomeUsuario.Trim() == "Nome de usuario")
             {
                 _resultado += "Nome de usuario inválido";
+            } 
+            else
+            {
+
+                try
+                {
+                    int.Parse(_nomeUsuario[0].ToString());
+                    _resultado += "Nome de usuario não deve iniciar com números";
+                }
+                catch { };
             }
+
 
             return _resultado;
         }
