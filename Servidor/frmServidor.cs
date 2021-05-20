@@ -53,13 +53,30 @@ namespace ChatAPS
             }
             else
             {
+                Servidor.Servidor.StatusChanged -= OnServidorStatusChanged;
+                LogFecharServidor();
                 _servidor.FecharServidor();
                 btnCriarServidor.Text = "Criar servidor";
-                Servidor.Servidor.StatusChanged -= OnServidorStatusChanged;
                 txbMensagem.Enabled = false;
                 CriarBackup();
                 _servidorRodando = false;
             }
+        }
+
+        private void LogFecharServidor()
+        {
+
+            txbLog.AppendText($"==========================================\r\n" +
+                $"Usuarios desconectados:\r\n");
+
+            foreach (string nomeUsuario in Servidor.Servidor.Usuarios.Keys)
+            {
+                txbLog.AppendText($"->    {nomeUsuario}\r\n");
+            }
+            txbLog.AppendText($"==========================================\r\n");
+            txbLog.AppendText($"Horário desconexão: " +
+                $"{DateTime.Now.ToString("dd/MM/yyyy - HH:mm")}\r\n");
+            txbLog.AppendText($"==========================================");
         }
 
         public void OnServidorStatusChanged(object sender, StatusChangedEventArgs args)
