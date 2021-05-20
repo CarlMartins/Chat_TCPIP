@@ -41,6 +41,8 @@ namespace ChatAPS
             this.pictureBoxIP = new System.Windows.Forms.PictureBox();
             this.lblPontos = new System.Windows.Forms.Label();
             this.pnlLog = new System.Windows.Forms.Panel();
+            this.txbMensagem = new System.Windows.Forms.TextBox();
+            this.btnEnviarMensagem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.upDownPort)).BeginInit();
             this.pnlMoverJanela.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIP)).BeginInit();
@@ -197,12 +199,44 @@ namespace ChatAPS
             this.pnlLog.Size = new System.Drawing.Size(608, 391);
             this.pnlLog.TabIndex = 16;
             // 
+            // txbMensagem
+            // 
+            this.txbMensagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(252)))), ((int)(((byte)(218)))));
+            this.txbMensagem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbMensagem.Enabled = false;
+            this.txbMensagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbMensagem.Location = new System.Drawing.Point(12, 475);
+            this.txbMensagem.Multiline = true;
+            this.txbMensagem.Name = "txbMensagem";
+            this.txbMensagem.PlaceholderText = "Digite sua mensagem...";
+            this.txbMensagem.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txbMensagem.Size = new System.Drawing.Size(529, 53);
+            this.txbMensagem.TabIndex = 17;
+            this.txbMensagem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbMensagem_KeyPress);
+            // 
+            // btnEnviarMensagem
+            // 
+            this.btnEnviarMensagem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEnviarMensagem.BackgroundImage")));
+            this.btnEnviarMensagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEnviarMensagem.FlatAppearance.BorderSize = 0;
+            this.btnEnviarMensagem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviarMensagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEnviarMensagem.ForeColor = System.Drawing.Color.Transparent;
+            this.btnEnviarMensagem.Location = new System.Drawing.Point(547, 475);
+            this.btnEnviarMensagem.Name = "btnEnviarMensagem";
+            this.btnEnviarMensagem.Size = new System.Drawing.Size(77, 54);
+            this.btnEnviarMensagem.TabIndex = 18;
+            this.btnEnviarMensagem.UseVisualStyleBackColor = true;
+            this.btnEnviarMensagem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnEnviarMensagem_MouseClick);
+            // 
             // frmServidor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(132)))), ((int)(((byte)(105)))));
-            this.ClientSize = new System.Drawing.Size(632, 479);
+            this.ClientSize = new System.Drawing.Size(632, 540);
+            this.Controls.Add(this.btnEnviarMensagem);
+            this.Controls.Add(this.txbMensagem);
             this.Controls.Add(this.pnlLog);
             this.Controls.Add(this.lblPontos);
             this.Controls.Add(this.pictureBoxIP);
@@ -241,6 +275,8 @@ namespace ChatAPS
         private System.Windows.Forms.PictureBox pictureBoxIP;
         private System.Windows.Forms.Label lblPontos;
         private System.Windows.Forms.Panel pnlLog;
+        private System.Windows.Forms.TextBox txbMensagem;
+        private System.Windows.Forms.Button btnEnviarMensagem;
     }
 }
 

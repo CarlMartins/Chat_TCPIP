@@ -43,6 +43,7 @@ namespace ChatAPS
 
                     btnCriarServidor.Text = "Fechar Servidor";
                     _servidorRodando = true;
+                    txbMensagem.Enabled = true;
                 }
                 catch (Exception ex)
                 {
@@ -55,6 +56,7 @@ namespace ChatAPS
                 _servidorRodando = false;
                 _servidor.FecharServidor();
                 btnCriarServidor.Text = "Criar servidor";
+                txbMensagem.Enabled = false;
                 Servidor.Servidor.StatusChanged -= OnServidorStatusChanged;
             }
         }
@@ -102,6 +104,30 @@ namespace ChatAPS
             {
                 Servidor.Servidor.CriarBackup(txbLog.Text);
             }
+        }
+
+        private void btnEnviarMensagem_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (txbMensagem.Text.Trim() != "")
+            {
+                Servidor.Servidor.EnviarMensagemAdmin(txbMensagem.Text);
+                txbMensagem.Text = "";
+                txbMensagem.Focus();
+            }
+        }
+
+        private void txbMensagem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                if (txbMensagem.Text.Trim() != "")
+                {
+                    Servidor.Servidor.EnviarMensagemAdmin(txbMensagem.Text);
+                    txbMensagem.Text = "";
+                }
+                e.Handled = true;
+            }
+            
         }
     }
 }
