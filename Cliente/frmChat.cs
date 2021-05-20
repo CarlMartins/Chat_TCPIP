@@ -36,15 +36,23 @@ namespace Cliente
             cbEmoticons.DroppedDown = false;
         }
 
+        private delegate void AtualizaLog(string mensagem);
         public void OnStatusChanged(object sender, StatusChangedEventArgs args)
         {
-            if(args.MensagemServidor[0] == '0')
+            Invoke(new AtualizaLog(AtualizaLogMensagem),
+                new object[] { args.MensagemServidor });
+        }
+
+        public void AtualizaLogMensagem(string mensagem)
+        {
+            if (mensagem[0] == '0')
             {
-                MessageBox.Show($"{args.MensagemServidor.Substring(2)}\r\n");
-                Close();
-            } else
+                MessageBox.Show($"{mensagem.Substring(2)}\r\n");
+                Application.Exit();
+            }
+            else
             {
-                txbLog.AppendText($"{args.MensagemServidor}\r\n");
+                txbLog.AppendText($"{mensagem}\r\n");
             }
         }
 

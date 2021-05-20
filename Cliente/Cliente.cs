@@ -70,7 +70,10 @@ namespace Cliente
             {
                 while (true)
                 {
-                    OnStatusChanged(_leitorConexao.ReadLine());
+                    string mensagem = "";
+                    OnStatusChanged((mensagem = _leitorConexao.ReadLine()) != null 
+                        ? mensagem
+                        : throw new Exception());
                 }
             }
             catch (Exception)
