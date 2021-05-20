@@ -66,7 +66,7 @@ namespace Cliente
             this.txbLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(252)))), ((int)(((byte)(218)))));
             this.txbLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbLog.Cursor = System.Windows.Forms.Cursors.No;
-            this.txbLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txbLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txbLog.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txbLog.Location = new System.Drawing.Point(7, 4);
             this.txbLog.Multiline = true;
@@ -170,12 +170,14 @@ namespace Cliente
             // 
             // cbEmoticons
             // 
-            this.cbEmoticons.DropDownWidth = 100;
-            this.cbEmoticons.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbEmoticons.DropDownHeight = 500;
+            this.cbEmoticons.DropDownWidth = 50;
+            this.cbEmoticons.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbEmoticons.FormattingEnabled = true;
+            this.cbEmoticons.IntegralHeight = false;
             this.cbEmoticons.Location = new System.Drawing.Point(278, 19);
             this.cbEmoticons.Name = "cbEmoticons";
-            this.cbEmoticons.Size = new System.Drawing.Size(20, 23);
+            this.cbEmoticons.Size = new System.Drawing.Size(20, 33);
             this.cbEmoticons.TabIndex = 1;
             this.cbEmoticons.SelectedIndexChanged += new System.EventHandler(this.cbEmoticons_SelectedIndexChanged);
             // 
