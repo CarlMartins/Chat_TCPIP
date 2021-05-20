@@ -13,6 +13,20 @@ namespace Cliente
 
         private void btnConectar_Click(object sender, EventArgs e)
         {
+            Conectar();
+        }
+
+        private void txbNomeUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                Conectar();
+                e.Handled = true;
+            }
+        }
+
+        private void Conectar()
+        {
             Validacao validacao = new Validacao(txbIP.Text, txbNomeUsuario.Text);
             string respostaValidacao = validacao.ValidarDadosConexao();
 
@@ -22,7 +36,7 @@ namespace Cliente
             }
             else
             {
-                Cliente cliente = new Cliente(
+                Client cliente = new Client(
                     txbIP.Text,
                     int.Parse(upDownPorta.Text),
                     txbNomeUsuario.Text);
@@ -33,7 +47,7 @@ namespace Cliente
                 if (cliente.RespostaLogin[0] == '1')
                 {
                     Hide();
-                    frmChat chat = new frmChat();
+                    FormChat chat = new FormChat();
                     chat.ShowDialog();
                     Close();
                 }

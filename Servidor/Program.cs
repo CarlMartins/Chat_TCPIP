@@ -14,7 +14,7 @@ namespace ChatAPS
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmServidor());
+            Application.Run(new FormServidor());
         }
     }
 }

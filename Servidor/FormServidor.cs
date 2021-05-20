@@ -6,14 +6,14 @@ using System.Windows.Forms;
 
 namespace ChatAPS
 {
-    public partial class frmServidor : Form
+    public partial class FormServidor : Form
     {
         private delegate void AtualizaStatusCallBack(string mensagem);
 
         private bool _servidorRodando = false;
-        private Servidor.Servidor _servidor;
+        private Server _servidor;
 
-        public frmServidor()
+        public FormServidor()
         {
             InitializeComponent();
         }
@@ -33,10 +33,10 @@ namespace ChatAPS
                     IPAddress enderecoIp = IPAddress.Parse(txbIp.Text);
                     int porta = (int)upDownPort.Value;
 
-                    _servidor = new Servidor.Servidor(enderecoIp, porta);
-                    Servidor.Servidor.StatusChanged += OnServidorStatusChanged;
-
+                    _servidor = new Servidor.Server(enderecoIp, porta);
+                    Server.StatusChanged += OnServidorStatusChanged;
                     _servidor.IniciarServidor();
+
                     txbLog.Text = "";
                     txbLog.AppendText("Esperando conexões...\r\n");
 
@@ -51,7 +51,7 @@ namespace ChatAPS
             }
             else
             {
-                Servidor.Servidor.StatusChanged -= OnServidorStatusChanged;
+                Server.StatusChanged -= OnServidorStatusChanged;
                 LogFecharServidor();
                 _servidor.FecharServidor();
                 btnCriarServidor.Text = "Criar servidor";
@@ -61,22 +61,46 @@ namespace ChatAPS
             }
         }
 
+        private void Enviar()
+        {
+            if (txbMensagem.Text.Trim() != "")
+            {
+                Server.EnviarMensagemAdmin(txbMensagem.Text);
+                txbMensagem.Text = "";
+                txbMensagem.Focus();
+            }
+        }
+
+        private void btnEnviarMensagem_MouseClick(object sender, MouseEventArgs e)
+        {
+            Enviar();
+        }
+
+        private void txbMensagem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                Enviar();
+                e.Handled = true;
+            }
+        }
+
         private void LogFecharServidor()
         {
             txbLog.AppendText($"==========================================\r\n" +
                 $"Usuarios desconectados:\r\n");
 
-            foreach (string nomeUsuario in Servidor.Servidor.Usuarios.Keys)
+            foreach (string nomeUsuario in Server.Usuarios.Keys)
             {
                 txbLog.AppendText($"->    {nomeUsuario}\r\n");
             }
             txbLog.AppendText($"==========================================\r\n");
             txbLog.AppendText($"Horário desconexão: " +
-                $"{DateTime.Now.ToString("dd/MM/yyyy - HH:mm")}\r\n");
+                $"{DateTime.Now:dd/MM/yyyy - HH:mm}\r\n");
             txbLog.AppendText($"==========================================");
         }
 
-        public void OnServidorStatusChanged(object sender, StatusChangedEventArgs args)
+        private void OnServidorStatusChanged(object sender, StatusChangedEventArgs args)
         {
             Invoke(new AtualizaStatusCallBack(AtualizaStatus),
                     new object[] { args.EventMessage });
@@ -117,30 +141,7 @@ namespace ChatAPS
         {
             if (_servidorRodando)
             {
-                Servidor.Servidor.CriarBackup(txbLog.Text);
-            }
-        }
-
-        private void btnEnviarMensagem_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (txbMensagem.Text.Trim() != "")
-            {
-                Servidor.Servidor.EnviarMensagemAdmin(txbMensagem.Text);
-                txbMensagem.Text = "";
-                txbMensagem.Focus();
-            }
-        }
-
-        private void txbMensagem_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Return)
-            {
-                if (txbMensagem.Text.Trim() != "")
-                {
-                    Servidor.Servidor.EnviarMensagemAdmin(txbMensagem.Text);
-                    txbMensagem.Text = "";
-                }
-                e.Handled = true;
+                Server.CriarBackup(txbLog.Text);
             }
         }
     }

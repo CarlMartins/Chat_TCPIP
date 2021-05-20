@@ -4,19 +4,19 @@ using System.Windows.Forms;
 
 namespace Cliente
 {
-    public partial class frmChat : Form
+    public partial class FormChat : Form
     {
-        public frmChat()
+        public FormChat()
         {
             InitializeComponent();
             txbMensagem.Focus();
-            Cliente.StatusChanged += OnStatusChanged;
-            lblNomeUsuario.Text += Cliente._nomeUsuario;
+            Client.StatusChanged += OnStatusChanged;
+            lblNomeUsuario.Text += Client._nomeUsuario;
         }
 
         private void Enviar()
         {
-            Cliente.EnviarMensagem(txbMensagem.Text);
+            Client.EnviarMensagem(txbMensagem.Text);
             txbMensagem.Text = "";
         }
 
@@ -37,13 +37,13 @@ namespace Cliente
         }
 
         private delegate void AtualizaLog(string mensagem);
-        public void OnStatusChanged(object sender, StatusChangedEventArgs args)
+        private void OnStatusChanged(object sender, StatusChangedEventArgs args)
         {
             Invoke(new AtualizaLog(AtualizaLogMensagem),
                 new object[] { args.MensagemServidor });
         }
 
-        public void AtualizaLogMensagem(string mensagem)
+        private void AtualizaLogMensagem(string mensagem)
         {
             if (mensagem[0] == '0')
             {
@@ -58,7 +58,7 @@ namespace Cliente
 
         private void frmChat_Shown(object sender, EventArgs e)
         {
-            btnEnviar.Focus();
+            BtnEnviar.Focus();
 
             cbEmoticons.Items.Clear();
             var emotes = new Emoticons();

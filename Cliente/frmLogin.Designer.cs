@@ -128,6 +128,7 @@ namespace Cliente
             this.txbNomeUsuario.Text = "Nome de usuario";
             this.txbNomeUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txbNomeUsuario.Click += new System.EventHandler(this.txbNomeUsuario_Click);
+            this.txbNomeUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNomeUsuario_KeyPress);
             this.txbNomeUsuario.Leave += new System.EventHandler(this.txbNomeUsuario_Leave);
             // 
             // pictureBoxLogo

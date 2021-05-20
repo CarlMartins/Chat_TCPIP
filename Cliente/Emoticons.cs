@@ -4,7 +4,7 @@ namespace Cliente
 {
     public class Emoticons
     {
-        private List<string> _emotes = new List<string>
+        private readonly List<string> _emotes = new List<string>
         {
             "♻",
             "🎄",
@@ -50,7 +50,6 @@ namespace Cliente
             "🤝",
             "👌",
             "🖕",
-            "👋",
             "👋",
             "💝",
         };

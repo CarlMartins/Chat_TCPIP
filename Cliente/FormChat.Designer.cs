@@ -1,7 +1,7 @@
 ﻿
 namespace Cliente
 {
-    partial class frmChat
+    partial class FormChat
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,10 @@ namespace Cliente
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChat));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChat));
             this.txbMensagem = new System.Windows.Forms.TextBox();
             this.txbLog = new System.Windows.Forms.TextBox();
-            this.btnEnviar = new System.Windows.Forms.Button();
+            this.BtnEnviar = new System.Windows.Forms.Button();
             this.lblMinimizar = new System.Windows.Forms.Label();
             this.lblSair = new System.Windows.Forms.Label();
             this.pnlMoverJanela = new System.Windows.Forms.Panel();
@@ -76,21 +76,21 @@ namespace Cliente
             this.txbLog.Size = new System.Drawing.Size(370, 325);
             this.txbLog.TabIndex = 0;
             // 
-            // btnEnviar
+            // BtnEnviar
             // 
-            this.btnEnviar.BackColor = System.Drawing.Color.Transparent;
-            this.btnEnviar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEnviar.BackgroundImage")));
-            this.btnEnviar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEnviar.FlatAppearance.BorderSize = 0;
-            this.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEnviar.Location = new System.Drawing.Point(316, 383);
-            this.btnEnviar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(73, 55);
-            this.btnEnviar.TabIndex = 2;
-            this.btnEnviar.UseVisualStyleBackColor = false;
-            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
+            this.BtnEnviar.BackColor = System.Drawing.Color.Transparent;
+            this.BtnEnviar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnEnviar.BackgroundImage")));
+            this.BtnEnviar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnEnviar.FlatAppearance.BorderSize = 0;
+            this.BtnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEnviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnEnviar.Location = new System.Drawing.Point(316, 383);
+            this.BtnEnviar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnEnviar.Name = "BtnEnviar";
+            this.BtnEnviar.Size = new System.Drawing.Size(73, 55);
+            this.BtnEnviar.TabIndex = 2;
+            this.BtnEnviar.UseVisualStyleBackColor = false;
+            this.BtnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // lblMinimizar
             // 
@@ -190,19 +190,19 @@ namespace Cliente
             this.pnlLog.Size = new System.Drawing.Size(377, 333);
             this.pnlLog.TabIndex = 15;
             // 
-            // frmChat
+            // FormChat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(132)))), ((int)(((byte)(105)))));
             this.ClientSize = new System.Drawing.Size(400, 450);
             this.Controls.Add(this.pnlMoverJanela);
-            this.Controls.Add(this.btnEnviar);
+            this.Controls.Add(this.BtnEnviar);
             this.Controls.Add(this.pnlMensagem);
             this.Controls.Add(this.pnlLog);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmChat";
+            this.Name = "FormChat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Shown += new System.EventHandler(this.frmChat_Shown);
@@ -221,7 +221,7 @@ namespace Cliente
 
         private System.Windows.Forms.TextBox txbMensagem;
         private System.Windows.Forms.TextBox txbLog;
-        private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.Button BtnEnviar;
         private System.Windows.Forms.Label lblMinimizar;
         private System.Windows.Forms.Label lblSair;
         private System.Windows.Forms.Panel pnlMoverJanela;

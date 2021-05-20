@@ -23,8 +23,8 @@ namespace Servidor
 
         private void AceitarUsuario(TcpClient cliente, string usuarioAtual)
         {
-            Servidor.Usuarios.Add(usuarioAtual, cliente);
-            Servidor.EnviarMensagemAdmin($"{usuarioAtual} se conectou.");
+            Server.Usuarios.Add(usuarioAtual, cliente);
+            Server.EnviarMensagemAdmin($"{usuarioAtual} se conectou.");
             AguardarMensagem();
         }
 
@@ -34,7 +34,7 @@ namespace Servidor
             _enviador = new StreamWriter(_tcpClient.GetStream());
             _usuarioAtual = _receptor.ReadLine();
 
-            if(Servidor.Usuarios.Count >= 10)
+            if(Server.Usuarios.Count >= 10)
             {
                 _enviador.WriteLine("0|Limite de usuários atingido.");
                 _enviador.Flush();
@@ -44,7 +44,7 @@ namespace Servidor
 
             if (_usuarioAtual != "")
             {
-                if (Servidor.Usuarios.Contains(_usuarioAtual))
+                if (Server.Usuarios.Contains(_usuarioAtual))
                 {
                     _enviador.WriteLine("0|Este nome de usuário já existe.");
                     _enviador.Flush();
@@ -73,23 +73,23 @@ namespace Servidor
             }          
         }
 
-        public void RemoverUsuario(string usuarioAtual)
+        private void RemoverUsuario(string usuarioAtual)
         {
-            if (Servidor.Usuarios[usuarioAtual] != null)
+            if (Server.Usuarios[usuarioAtual] != null)
             {
-                Servidor.Usuarios.Remove(usuarioAtual);
-                Servidor.EnviarMensagemAdmin($"{usuarioAtual} se desconectou (" +
-                    $"{DateTime.Now.ToString("HH:mm")}).");
+                Server.Usuarios.Remove(usuarioAtual);
+                Server.EnviarMensagemAdmin($"{usuarioAtual} se desconectou (" +
+                    $"{DateTime.Now:HH:mm}).");
             }
         }
 
-        public void AguardarMensagem()
+        private void AguardarMensagem()
         {
             try
             {
                 while ((_resposta = _receptor.ReadLine()) != null)
                 {
-                    Servidor.ValidarMensagem(_usuarioAtual, _resposta);
+                    Server.ValidarMensagem(_usuarioAtual, _resposta);
                 }
             }
             catch (Exception)

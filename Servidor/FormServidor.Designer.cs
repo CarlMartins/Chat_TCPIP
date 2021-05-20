@@ -1,7 +1,7 @@
 ﻿
 namespace ChatAPS
 {
-    partial class frmServidor
+    partial class FormServidor
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@ namespace ChatAPS
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmServidor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormServidor));
             this.txbIp = new System.Windows.Forms.TextBox();
             this.btnCriarServidor = new System.Windows.Forms.Button();
             this.txbLog = new System.Windows.Forms.TextBox();

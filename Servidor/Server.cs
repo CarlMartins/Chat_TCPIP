@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Servidor
 {
-    class Servidor
+    class Server
     {
         private IPAddress EnderecoIp;
         private int Porta;
@@ -22,7 +22,7 @@ namespace Servidor
 
         private bool ServidorRodando = false;
 
-        public Servidor(IPAddress enderecoIp, int porta)
+        public Server(IPAddress enderecoIp, int porta)
         {
             EnderecoIp = enderecoIp;
             Porta = porta;
@@ -78,7 +78,7 @@ namespace Servidor
             }
         }
 
-        public TcpListener ListenerServidor;
+        private TcpListener ListenerServidor;
         public void IniciarServidor()
         {
             ListenerServidor = new TcpListener(EnderecoIp, Porta);
@@ -102,7 +102,7 @@ namespace Servidor
             ListenerServidor.Stop();
         }
 
-        public void ManterServidor()
+        private void ManterServidor()
         {
             while (ServidorRodando)
             {
@@ -130,7 +130,7 @@ namespace Servidor
             }
 
             using (StreamWriter writer = File.CreateText($"{path}\\" +
-                $"{DateTime.Now.ToString("dd-MM-yyyy HHmmss")}.txt"))
+                $"{DateTime.Now:dd-MM-yyyy HHmmss}.txt"))
             {
                 writer.WriteLine(texto);
             }

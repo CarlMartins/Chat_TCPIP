@@ -5,12 +5,12 @@ using System.Threading;
 
 namespace Cliente
 {
-    class Cliente
+    class Client
     {
         public static string _nomeUsuario;
-        private int _porta;
+        private int _porta { get; }
 
-        private string _enderecoIp;
+        private string _enderecoIp { get; }
         public static TcpClient _tcpServidor;
         public static StreamWriter _escritorConexao;
         public static StreamReader _leitorConexao;
@@ -21,7 +21,7 @@ namespace Cliente
         public string RespostaLogin;
 
 
-        public Cliente(string enderecoIp, int porta, string nomeUsuario)
+        public Client(string enderecoIp, int porta, string nomeUsuario)
         {
             _enderecoIp = enderecoIp;
             _porta = porta;
@@ -64,7 +64,7 @@ namespace Cliente
             _escritorConexao.Flush();
         }
 
-        public void EscutarMensagens()
+        private void EscutarMensagens()
         {
             try
             {
