@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Servidor
 {
@@ -119,7 +120,6 @@ namespace Servidor
             }
         }
 
-
         public static void CriarBackup(string texto)
         {
             string path = @$"C:\Users\{Environment.UserName}" +
@@ -134,7 +134,7 @@ namespace Servidor
                 $"{DateTime.Now.ToString("dd-MM-yyyy HHmmss")}.txt"))
             {
                 writer.WriteLine(texto);
-            }
+            }          
         }
     }
 }

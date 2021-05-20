@@ -23,7 +23,8 @@ namespace Servidor
 
         private void AceitarUsuario(TcpClient cliente, string usuarioAtual)
         {
-            IncluirUsuario(cliente, usuarioAtual);
+            Servidor.Usuarios.Add(usuarioAtual, cliente);
+            Servidor.EnviarMensagemAdmin($"{usuarioAtual} se conectou.");
             AguardarMensagem();
         }
 
@@ -72,18 +73,13 @@ namespace Servidor
             }          
         }
 
-        public void IncluirUsuario(TcpClient usuario, string nomeUsuario)
-        {
-            Servidor.Usuarios.Add(nomeUsuario, usuario);
-            Servidor.EnviarMensagemAdmin($"{nomeUsuario} se conectou.");
-        }
-
         public void RemoverUsuario(string usuarioAtual)
         {
             if (Servidor.Usuarios[usuarioAtual] != null)
             {
                 Servidor.Usuarios.Remove(usuarioAtual);
-                Servidor.EnviarMensagemAdmin($"{usuarioAtual} se desconectou.");
+                Servidor.EnviarMensagemAdmin($"{usuarioAtual} se desconectou (" +
+                    $"{DateTime.Now.ToString("HH:mm")}).");
             }
         }
 

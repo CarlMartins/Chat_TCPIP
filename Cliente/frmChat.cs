@@ -51,6 +51,14 @@ namespace Cliente
         private void frmChat_Shown(object sender, EventArgs e)
         {
             btnEnviar.Focus();
+
+            cbEmoticons.Items.Clear();
+            var emotes = new Emoticons();
+
+            foreach (var emote in emotes.Emotes)
+            {
+                cbEmoticons.Items.Add(emote.ToString());
+            }
         }
 
         private void lblSair_Click(object sender, EventArgs e)
@@ -85,8 +93,7 @@ namespace Cliente
 
         private void cbEmoticons_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Emoticons emoticons = new Emoticons();
-            txbMensagem.AppendText($" {emoticons.getEmoticon(cbEmoticons.SelectedIndex)}");
+            txbMensagem.AppendText($" {cbEmoticons.SelectedItem} ");
             txbMensagem.Focus();
             cbEmoticons.DroppedDown = true;
         }

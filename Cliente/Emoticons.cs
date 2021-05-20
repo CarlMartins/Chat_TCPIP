@@ -8,7 +8,7 @@ namespace Cliente
 {
     public class Emoticons
     {
-        private List<string> Emotes = new List<string>
+        private List<string> _emotes = new List<string>
         {
             "(◉ܫ◉)",
             "(ၜ︗ၜ )",
@@ -25,10 +25,9 @@ namespace Cliente
             "(/) (°,,°) (/)"
         };
 
-        public string getEmoticon(int id)
-        {
-            return Emotes[id];
+        public List<string> Emotes {
+            get { return _emotes; } 
+            private set { } 
         }
-
     }
 }

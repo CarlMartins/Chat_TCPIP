@@ -173,20 +173,6 @@ namespace Cliente
             this.cbEmoticons.DropDownWidth = 100;
             this.cbEmoticons.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbEmoticons.FormattingEnabled = true;
-            this.cbEmoticons.Items.AddRange(new object[] {
-            "(◉ܫ◉)",
-            "(ၜ︗ၜ )",
-            "( ͡° ͜ʖ ͡°)",
-            "ʕ•ᴥ•ʔ",
-            "ಠ_ಠ",
-            "(ಥ﹏ಥ)",
-            "(ᵔᴥᵔ)",
-            "ಠ╭╮ಠ",
-            "♥‿♥",
-            "(¬_¬)",
-            "[̲̅$̲̅(̲̅5̲̅)̲̅$̲̅]",
-            "(ง\'̀-\'́)ง",
-            "(/) (°,,°) (/)"});
             this.cbEmoticons.Location = new System.Drawing.Point(278, 19);
             this.cbEmoticons.Name = "cbEmoticons";
             this.cbEmoticons.Size = new System.Drawing.Size(20, 23);

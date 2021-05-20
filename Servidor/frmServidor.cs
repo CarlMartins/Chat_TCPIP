@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ChatAPS
@@ -52,12 +53,12 @@ namespace ChatAPS
             }
             else
             {
-                CriarBackup();
-                _servidorRodando = false;
                 _servidor.FecharServidor();
                 btnCriarServidor.Text = "Criar servidor";
-                txbMensagem.Enabled = false;
                 Servidor.Servidor.StatusChanged -= OnServidorStatusChanged;
+                txbMensagem.Enabled = false;
+                CriarBackup();
+                _servidorRodando = false;
             }
         }
 
@@ -100,7 +101,8 @@ namespace ChatAPS
 
         private void CriarBackup()
         {
-            if(_servidorRodando)
+            
+            if (_servidorRodando)
             {
                 Servidor.Servidor.CriarBackup(txbLog.Text);
             }
@@ -127,7 +129,6 @@ namespace ChatAPS
                 }
                 e.Handled = true;
             }
-            
         }
     }
 }
