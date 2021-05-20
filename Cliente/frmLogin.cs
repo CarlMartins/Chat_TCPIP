@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cliente
@@ -24,7 +16,7 @@ namespace Cliente
             Validacao validacao = new Validacao(txbIP.Text, txbNomeUsuario.Text);
             string respostaValidacao = validacao.ValidarDadosConexao();
 
-            if(respostaValidacao != "")
+            if (respostaValidacao != "")
             {
                 MessageBox.Show(respostaValidacao);
             }
@@ -44,7 +36,7 @@ namespace Cliente
                     frmChat chat = new frmChat();
                     chat.ShowDialog();
                     Close();
-                }    
+                }
             }
         }
 
@@ -60,7 +52,7 @@ namespace Cliente
 
         private void txbNomeUsuario_Leave(object sender, EventArgs e)
         {
-            if(txbNomeUsuario.Text.Trim() == "")
+            if (txbNomeUsuario.Text.Trim() == "")
             {
                 txbNomeUsuario.Text = "Nome de usuario";
             }
@@ -82,24 +74,24 @@ namespace Cliente
 
         private void pnlMoverJanela_MouseMove(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 Left += e.X - _mouse.X;
                 Top += e.Y - _mouse.Y;
             }
         }
 
-
-
-        string path = @"D:\Documentos\Faculdade\Semestres\5º Semestre\APS\ChatAPS\Cliente";
+        string path = Environment.CurrentDirectory;
         private void btnConectar_MouseHover(object sender, EventArgs e)
         {
-            btnConectar.BackgroundImage = Image.FromFile(path + "\\Properties\\Resources\\botao_conectar2.png");
+            btnConectar.BackgroundImage = Image.FromFile(path + "\\..\\..\\..\\" +
+                "Properties\\Resources\\botao_conectar2.png");
         }
 
         private void btnConectar_MouseLeave(object sender, EventArgs e)
         {
-            btnConectar.BackgroundImage = Image.FromFile(path + "\\Properties\\Resources\\botao_conectar1.png");
+            btnConectar.BackgroundImage = Image.FromFile(path + "\\..\\..\\..\\" +
+                "Properties\\Resources\\botao_conectar1.png");
         }
     }
 }

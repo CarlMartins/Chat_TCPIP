@@ -4,24 +4,23 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Servidor
 {
     class Servidor
     {
-        public IPAddress EnderecoIp;
-        public int Porta;
+        private IPAddress EnderecoIp;
+        private int Porta;
 
         public static Hashtable Usuarios = new Hashtable(10);
 
-        public TcpClient TcpServer = new TcpClient();
+        private TcpClient TcpServer = new TcpClient();
 
         public static EventHandler<StatusChangedEventArgs> StatusChanged;
 
-        public Thread ThreadListener;
+        private Thread ThreadListener;
 
-        bool ServidorRodando = false;
+        private bool ServidorRodando = false;
 
         public Servidor(IPAddress enderecoIp, int porta)
         {
@@ -71,7 +70,7 @@ namespace Servidor
 
             foreach (TcpClient cliente in tcpClients)
             {
-                if (mensagem.Trim() == "" || cliente == null) 
+                if (mensagem.Trim() == "" || cliente == null)
                     continue;
                 mensagemAdmin = new StreamWriter(cliente.GetStream());
                 mensagemAdmin.WriteLine($"Administrador: {mensagem}");
@@ -134,7 +133,7 @@ namespace Servidor
                 $"{DateTime.Now.ToString("dd-MM-yyyy HHmmss")}.txt"))
             {
                 writer.WriteLine(texto);
-            }          
+            }
         }
     }
 }

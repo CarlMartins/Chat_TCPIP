@@ -14,10 +14,5 @@ namespace Servidor
         {
 
         }
-
-        public StatusChangedEventArgs(string eventMessage)
-        {
-            EventMessage = eventMessage;
-        }
     }
 }

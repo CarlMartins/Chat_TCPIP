@@ -1,9 +1,7 @@
 ﻿using Servidor;
 using System;
 using System.Drawing;
-using System.IO;
 using System.Net;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace ChatAPS
@@ -22,7 +20,7 @@ namespace ChatAPS
 
         private void btnCriarServidor_Click(object sender, EventArgs e)
         {
-            if(_servidorRodando == false)
+            if (_servidorRodando == false)
             {
                 if (txbIp.Text == "")
                 {
@@ -65,7 +63,6 @@ namespace ChatAPS
 
         private void LogFecharServidor()
         {
-
             txbLog.AppendText($"==========================================\r\n" +
                 $"Usuarios desconectados:\r\n");
 
@@ -118,7 +115,6 @@ namespace ChatAPS
 
         private void CriarBackup()
         {
-            
             if (_servidorRodando)
             {
                 Servidor.Servidor.CriarBackup(txbLog.Text);

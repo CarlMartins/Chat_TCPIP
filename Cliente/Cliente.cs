@@ -28,11 +28,6 @@ namespace Cliente
             _nomeUsuario = nomeUsuario;
         }
 
-        public Cliente()
-        {
-
-        }
-
         public void Conectar()
         {
             _tcpServidor = new TcpClient();
