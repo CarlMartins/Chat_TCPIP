@@ -1,6 +1,7 @@
 ﻿using Servidor;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Net;
 using System.Windows.Forms;
 
@@ -50,6 +51,7 @@ namespace ChatAPS
             }
             else
             {
+                CriarBackup();
                 _servidorRodando = false;
                 _servidor.FecharServidor();
                 btnCriarServidor.Text = "Criar servidor";
@@ -70,6 +72,7 @@ namespace ChatAPS
 
         private void lblSair_Click(object sender, EventArgs e)
         {
+            CriarBackup();
             Application.Exit();
         }
 
@@ -90,6 +93,14 @@ namespace ChatAPS
             {
                 Left += e.X - _mouse.X;
                 Top += e.Y - _mouse.Y;
+            }
+        }
+
+        private void CriarBackup()
+        {
+            if(_servidorRodando)
+            {
+                Servidor.Servidor.CriarBackup(txbLog.Text);
             }
         }
     }

@@ -6,7 +6,6 @@ namespace Cliente
     class Validacao
     {
         private string _enderecoIp;
-        private string _mensagem;
         private string _nomeUsuario;
         private string _resultado;
 
@@ -35,7 +34,6 @@ namespace Cliente
             } 
             else
             {
-
                 try
                 {
                     int.Parse(_nomeUsuario[0].ToString());
@@ -43,7 +41,6 @@ namespace Cliente
                 }
                 catch { };
             }
-
 
             return _resultado;
         }

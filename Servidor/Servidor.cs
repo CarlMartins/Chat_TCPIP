@@ -7,7 +7,6 @@ using System.Threading;
 
 namespace Servidor
 {
-    
     class Servidor
     {
         public IPAddress EnderecoIp;
@@ -95,11 +94,12 @@ namespace Servidor
         public void FecharServidor()
         {
             ServidorRodando = false;
+            foreach (TcpClient usuario in Usuarios.Values)
+            {
+                usuario.Close();
+            }
 
             ListenerServidor.Stop();
-
-            TcpServer.Close();
-            
         }
 
         public void ManterServidor()
@@ -116,6 +116,24 @@ namespace Servidor
                     EnderecoIp = null;
                     Porta = 0;
                 }
+            }
+        }
+
+
+        public static void CriarBackup(string texto)
+        {
+            string path = @$"C:\Users\{Environment.UserName}" +
+                @$"\Desktop\Backup";
+
+            if (Directory.Exists(path) == false)
+            {
+                DirectoryInfo di = Directory.CreateDirectory(path);
+            }
+
+            using (StreamWriter writer = File.CreateText($"{path}\\" +
+                $"{DateTime.Now.ToString("dd-MM-yyyy HHmmss")}.txt"))
+            {
+                writer.WriteLine(texto);
             }
         }
     }

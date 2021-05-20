@@ -46,7 +46,6 @@ namespace Cliente
             {
                 txbLog.AppendText($"{args.MensagemServidor}\r\n");
             }
-            
         }
 
         private void frmChat_Shown(object sender, EventArgs e)
