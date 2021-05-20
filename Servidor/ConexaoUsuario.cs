@@ -21,20 +21,13 @@ namespace Servidor
             _threadValidacao.Start();
         }
 
-        private void AceitarUsuario(TcpClient cliente, string usuarioAtual)
-        {
-            Server.Usuarios.Add(usuarioAtual, cliente);
-            Server.EnviarMensagemAdmin($"{usuarioAtual} se conectou.");
-            AguardarMensagem();
-        }
-
         private void ValidarUsuario()
         {
             _receptor = new StreamReader(_tcpClient.GetStream());
             _enviador = new StreamWriter(_tcpClient.GetStream());
             _usuarioAtual = _receptor.ReadLine();
 
-            if(Server.Usuarios.Count >= 10)
+            if (Server.Usuarios.Count >= 10)
             {
                 _enviador.WriteLine("0|Limite de usuários atingido.");
                 _enviador.Flush();
@@ -70,7 +63,14 @@ namespace Servidor
             {
                 FechaConexao();
                 return;
-            }          
+            }
+        }
+
+        private void AceitarUsuario(TcpClient cliente, string usuarioAtual)
+        {
+            Server.Usuarios.Add(usuarioAtual, cliente);
+            Server.EnviarMensagemAdmin($"{usuarioAtual} se conectou.");
+            AguardarMensagem();
         }
 
         private void RemoverUsuario(string usuarioAtual)

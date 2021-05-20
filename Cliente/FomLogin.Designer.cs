@@ -1,7 +1,7 @@
 ﻿
 namespace Cliente
 {
-    partial class frmLogin
+    partial class FomLogin
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@ namespace Cliente
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FomLogin));
             this.txbIP = new System.Windows.Forms.TextBox();
             this.btnConectar = new System.Windows.Forms.Button();
             this.upDownPorta = new System.Windows.Forms.NumericUpDown();

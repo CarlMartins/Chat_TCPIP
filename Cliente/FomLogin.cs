@@ -5,25 +5,11 @@ using System.Windows.Forms;
 
 namespace Cliente
 {
-    public partial class frmLogin : Form
+    public partial class FomLogin : Form
     {
-        public frmLogin()
+        public FomLogin()
         {
             InitializeComponent();
-        }
-
-        private void btnConectar_Click(object sender, EventArgs e)
-        {
-            Conectar();
-        }
-
-        private void txbNomeUsuario_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Return)
-            {
-                Conectar();
-                e.Handled = true;
-            }
         }
 
         private void Conectar()
@@ -55,6 +41,20 @@ namespace Cliente
             }
         }
 
+        private void btnConectar_Click(object sender, EventArgs e)
+        {
+            Conectar();
+        }
+
+        private void txbNomeUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                Conectar();
+                e.Handled = true;
+            }
+        }
+
         private void lblSair_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -65,19 +65,19 @@ namespace Cliente
             WindowState = FormWindowState.Minimized;
         }
 
-        private void txbNomeUsuario_Leave(object sender, EventArgs e)
-        {
-            if (txbNomeUsuario.Text.Trim() == "")
-            {
-                txbNomeUsuario.Text = "Nome de usuario";
-            }
-        }
-
         private void txbNomeUsuario_Click(object sender, EventArgs e)
         {
             if (txbNomeUsuario.Text.Trim() == "Nome de usuario")
             {
                 txbNomeUsuario.Text = "";
+            }
+        }
+
+        private void txbNomeUsuario_Leave(object sender, EventArgs e)
+        {
+            if (txbNomeUsuario.Text.Trim() == "")
+            {
+                txbNomeUsuario.Text = "Nome de usuario";
             }
         }
 

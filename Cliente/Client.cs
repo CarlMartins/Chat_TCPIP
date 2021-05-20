@@ -58,12 +58,6 @@ namespace Cliente
             }
         }
 
-        public static void EnviarMensagem(string mensagem)
-        {
-            _escritorConexao.WriteLine(mensagem.Trim());
-            _escritorConexao.Flush();
-        }
-
         private void EscutarMensagens()
         {
             try
@@ -71,7 +65,7 @@ namespace Cliente
                 while (true)
                 {
                     string mensagem = "";
-                    OnStatusChanged((mensagem = _leitorConexao.ReadLine()) != null 
+                    OnStatusChanged((mensagem = _leitorConexao.ReadLine()) != null
                         ? mensagem
                         : throw new Exception());
                 }
@@ -80,6 +74,12 @@ namespace Cliente
             {
                 OnStatusChanged("0|Problema com o servidor");
             }
+        }
+
+        public static void EnviarMensagem(string mensagem)
+        {
+            _escritorConexao.WriteLine(mensagem.Trim());
+            _escritorConexao.Flush();
         }
 
         public void OnStatusChanged(string mensagem)

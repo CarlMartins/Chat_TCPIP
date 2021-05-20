@@ -28,11 +28,33 @@ namespace Servidor
             Porta = porta;
         }
 
-        public static void OnStatusChanged(string eventMessage)
+        private TcpListener ListenerServidor;
+        public void IniciarServidor()
         {
-            if (StatusChanged != null)
+            ListenerServidor = new TcpListener(EnderecoIp, Porta);
+            ListenerServidor.Start();
+
+            ServidorRodando = true;
+
+            ThreadListener = new Thread(ManterServidor);
+            ThreadListener.IsBackground = true;
+            ThreadListener.Start();
+        }
+
+        private void ManterServidor()
+        {
+            while (ServidorRodando)
             {
-                StatusChanged(null, new StatusChangedEventArgs() { EventMessage = eventMessage });
+                try
+                {
+                    TcpServer = ListenerServidor.AcceptTcpClient();
+                    ConexaoUsuario novaConexao = new ConexaoUsuario(TcpServer);
+                }
+                catch (Exception)
+                {
+                    EnderecoIp = null;
+                    Porta = 0;
+                }
             }
         }
 
@@ -78,17 +100,12 @@ namespace Servidor
             }
         }
 
-        private TcpListener ListenerServidor;
-        public void IniciarServidor()
+        public static void OnStatusChanged(string eventMessage)
         {
-            ListenerServidor = new TcpListener(EnderecoIp, Porta);
-            ListenerServidor.Start();
-
-            ServidorRodando = true;
-
-            ThreadListener = new Thread(ManterServidor);
-            ThreadListener.IsBackground = true;
-            ThreadListener.Start();
+            if (StatusChanged != null)
+            {
+                StatusChanged(null, new StatusChangedEventArgs() { EventMessage = eventMessage });
+            }
         }
 
         public void FecharServidor()
@@ -100,23 +117,6 @@ namespace Servidor
             }
 
             ListenerServidor.Stop();
-        }
-
-        private void ManterServidor()
-        {
-            while (ServidorRodando)
-            {
-                try
-                {
-                    TcpServer = ListenerServidor.AcceptTcpClient();
-                    ConexaoUsuario novaConexao = new ConexaoUsuario(TcpServer);
-                }
-                catch (Exception)
-                {
-                    EnderecoIp = null;
-                    Porta = 0;
-                }
-            }
         }
 
         public static void CriarBackup(string texto)

@@ -85,6 +85,17 @@ namespace ChatAPS
             }
         }
 
+        private void OnServidorStatusChanged(object sender, StatusChangedEventArgs args)
+        {
+            Invoke(new AtualizaStatusCallBack(AtualizaStatus),
+                    new object[] { args.EventMessage });
+        }
+
+        private void AtualizaStatus(string mensagem)
+        {
+            txbLog.AppendText($"{mensagem}\r\n");
+        }
+
         private void LogFecharServidor()
         {
             txbLog.AppendText($"==========================================\r\n" +
@@ -98,17 +109,6 @@ namespace ChatAPS
             txbLog.AppendText($"Horário desconexão: " +
                 $"{DateTime.Now:dd/MM/yyyy - HH:mm}\r\n");
             txbLog.AppendText($"==========================================");
-        }
-
-        private void OnServidorStatusChanged(object sender, StatusChangedEventArgs args)
-        {
-            Invoke(new AtualizaStatusCallBack(AtualizaStatus),
-                    new object[] { args.EventMessage });
-        }
-
-        private void AtualizaStatus(string mensagem)
-        {
-            txbLog.AppendText($"{mensagem}\r\n");
         }
 
         private void lblSair_Click(object sender, EventArgs e)

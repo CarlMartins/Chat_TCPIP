@@ -20,22 +20,6 @@ namespace Cliente
             txbMensagem.Text = "";
         }
 
-        private void btnEnviar_Click(object sender, EventArgs e)
-        {
-            Enviar();
-        }
-
-        private void txbMensagem_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Return)
-            {
-                Enviar();
-                e.Handled = true;
-            }
-
-            cbEmoticons.DroppedDown = false;
-        }
-
         private delegate void AtualizaLog(string mensagem);
         private void OnStatusChanged(object sender, StatusChangedEventArgs args)
         {
@@ -67,6 +51,22 @@ namespace Cliente
             {
                 cbEmoticons.Items.Add(emote.ToString());
             }
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            Enviar();
+        }
+
+        private void txbMensagem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                Enviar();
+                e.Handled = true;
+            }
+
+            cbEmoticons.DroppedDown = false;
         }
 
         private void lblSair_Click(object sender, EventArgs e)
