@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -111,10 +112,14 @@ namespace Servidor
         public void FecharServidor()
         {
             ServidorRodando = false;
-            foreach (TcpClient usuario in Usuarios.Values)
+            try
             {
-                usuario.Close();
+                foreach (TcpClient usuario in Usuarios.Values)
+                {
+                    usuario.Close();
+                }
             }
+            catch {}
 
             ListenerServidor.Stop();
         }
