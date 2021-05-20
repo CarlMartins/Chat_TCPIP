@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Cliente
@@ -93,19 +94,6 @@ namespace Cliente
                 Left += e.X - _mouse.X;
                 Top += e.Y - _mouse.Y;
             }
-        }
-
-        string path = Environment.CurrentDirectory;
-        private void btnConectar_MouseHover(object sender, EventArgs e)
-        {
-            btnConectar.BackgroundImage = Image.FromFile(path + "\\..\\..\\..\\" +
-                "Properties\\Resources\\botao_conectar2.png");
-        }
-
-        private void btnConectar_MouseLeave(object sender, EventArgs e)
-        {
-            btnConectar.BackgroundImage = Image.FromFile(path + "\\..\\..\\..\\" +
-                "Properties\\Resources\\botao_conectar1.png");
         }
     }
 }

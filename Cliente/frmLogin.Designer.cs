@@ -80,8 +80,6 @@ namespace Cliente
             this.btnConectar.TabIndex = 1;
             this.btnConectar.UseVisualStyleBackColor = false;
             this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
-            this.btnConectar.MouseLeave += new System.EventHandler(this.btnConectar_MouseLeave);
-            this.btnConectar.MouseHover += new System.EventHandler(this.btnConectar_MouseHover);
             // 
             // upDownPorta
             // 
