@@ -40,7 +40,7 @@ namespace Servidor
             ThreadListener = new Thread(ManterServidor);
             ThreadListener.IsBackground = true;
             ThreadListener.Start();
-        }
+        }  
 
         private void ManterServidor()
         {
@@ -88,10 +88,7 @@ namespace Servidor
 
             OnStatusChanged($"Adminstrador: {mensagem}");
 
-            TcpClient[] tcpClients = new TcpClient[Usuarios.Count];
-            Usuarios.Values.CopyTo(tcpClients, 0);
-
-            foreach (TcpClient cliente in tcpClients)
+            foreach (TcpClient cliente in Usuarios.Values)
             {
                 if (mensagem.Trim() == "" || cliente == null)
                     continue;
@@ -109,7 +106,7 @@ namespace Servidor
             }
         }
 
-        public void FecharServidor()
+        public void FecharServidor()    
         {
             ServidorRodando = false;
             try
@@ -126,19 +123,23 @@ namespace Servidor
 
         public static void CriarBackup(string texto)
         {
-            string path = @$"C:\Users\{Environment.UserName}" +
+            try
+            {
+                string path = @$"C:\Users\{Environment.UserName}" +
                 @$"\Desktop\Backup";
 
-            if (Directory.Exists(path) == false)
-            {
-                DirectoryInfo di = Directory.CreateDirectory(path);
-            }
+                if (Directory.Exists(path) == false)
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(path);
+                }
 
-            using (StreamWriter writer = File.CreateText($"{path}\\" +
-                $"{DateTime.Now:dd-MM-yyyy HHmmss}.txt"))
-            {
-                writer.WriteLine(texto);
+                using (StreamWriter writer = File.CreateText($"{path}\\" +
+                    $"{DateTime.Now:dd-MM-yyyy HHmmss}.txt"))
+                {
+                    writer.WriteLine(texto);
+                }
             }
+            catch { };
         }
     }
 }

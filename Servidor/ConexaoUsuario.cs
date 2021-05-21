@@ -9,8 +9,8 @@ namespace Servidor
     {
         private TcpClient _tcpClient;
         private Thread _threadValidacao;
-        private StreamReader _receptor;
-        private StreamWriter _enviador;
+        private StreamReader _leitorConexao;
+        private StreamWriter _escritorConexao;
         private string _usuarioAtual;
         private string _resposta;
 
@@ -23,14 +23,14 @@ namespace Servidor
 
         private void ValidarUsuario()
         {
-            _receptor = new StreamReader(_tcpClient.GetStream());
-            _enviador = new StreamWriter(_tcpClient.GetStream());
-            _usuarioAtual = _receptor.ReadLine();
+            _leitorConexao = new StreamReader(_tcpClient.GetStream());
+            _escritorConexao = new StreamWriter(_tcpClient.GetStream());
+            _usuarioAtual = _leitorConexao.ReadLine();
 
             if (Server.Usuarios.Count >= 10)
             {
-                _enviador.WriteLine("0|Limite de usuários atingido.");
-                _enviador.Flush();
+                _escritorConexao.WriteLine("0|Limite de usuários atingido.");
+                _escritorConexao.Flush();
                 FechaConexao();
                 return;
             }
@@ -39,22 +39,22 @@ namespace Servidor
             {
                 if (Server.Usuarios.Contains(_usuarioAtual))
                 {
-                    _enviador.WriteLine("0|Este nome de usuário já existe.");
-                    _enviador.Flush();
+                    _escritorConexao.WriteLine("0|Este nome de usuário já existe.");
+                    _escritorConexao.Flush();
                     FechaConexao();
                     return;
                 }
                 else if (_usuarioAtual.ToLower() == "administrador")
                 {
-                    _enviador.WriteLine("0|Este nome de usuário é reservado.");
-                    _enviador.Flush();
+                    _escritorConexao.WriteLine("0|Este nome de usuário é reservado.");
+                    _escritorConexao.Flush();
                     FechaConexao();
                     return;
                 }
                 else
                 {
-                    _enviador.WriteLine("1");
-                    _enviador.Flush();
+                    _escritorConexao.WriteLine("1");
+                    _escritorConexao.Flush();
 
                     AceitarUsuario(_tcpClient, _usuarioAtual);
                 }
@@ -87,7 +87,7 @@ namespace Servidor
         {
             try
             {
-                while ((_resposta = _receptor.ReadLine()) != null)
+                while ((_resposta = _leitorConexao.ReadLine()) != null)
                 {
                     Server.ValidarMensagem(_usuarioAtual, _resposta);
                 }
@@ -101,8 +101,8 @@ namespace Servidor
         private void FechaConexao()
         {
             _tcpClient.Close();
-            _receptor.Close();
-            _enviador.Close();
+            _leitorConexao.Close();
+            _escritorConexao.Close();
         }
     }
 }
