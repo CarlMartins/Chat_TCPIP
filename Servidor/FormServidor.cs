@@ -61,26 +61,27 @@ namespace ChatAPS
             }
         }
 
-        private void Enviar()
+        private void EnviarMensagem()
         {
-            if (txbMensagem.Text.Trim() != "")
+            string mensagem = txbMensagem.Text.Trim();
+            if (mensagem.Trim() != "")
             {
-                Server.EnviarMensagemAdmin(txbMensagem.Text);
-                txbMensagem.Text = "";
+                Server.EnviarMensagemAdmin(mensagem);
                 txbMensagem.Focus();
             }
+            txbMensagem.Text = "";
         }
 
         private void btnEnviarMensagem_MouseClick(object sender, MouseEventArgs e)
         {
-            Enviar();
+            EnviarMensagem();
         }
 
         private void txbMensagem_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Return)
             {
-                Enviar();
+                EnviarMensagem();
                 e.Handled = true;
             }
         }

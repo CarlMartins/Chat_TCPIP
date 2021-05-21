@@ -12,7 +12,6 @@ namespace Servidor
         private StreamReader _leitorConexao;
         private StreamWriter _escritorConexao;
         private string _usuarioAtual;
-        private string _resposta;
 
         public ConexaoUsuario(TcpClient cliente)
         {
@@ -56,7 +55,7 @@ namespace Servidor
                     _escritorConexao.WriteLine("1");
                     _escritorConexao.Flush();
 
-                    AceitarUsuario(_tcpClient, _usuarioAtual);
+                    AceitarUsuario(_usuarioAtual, _tcpClient);
                 }
             }
             else
@@ -66,11 +65,26 @@ namespace Servidor
             }
         }
 
-        private void AceitarUsuario(TcpClient cliente, string usuarioAtual)
+        private void AceitarUsuario(string usuarioAtual, TcpClient cliente)
         {
             Server.Usuarios.Add(usuarioAtual, cliente);
             Server.EnviarMensagemAdmin($"{usuarioAtual} se conectou.");
             AguardarMensagem();
+        }
+
+        private void AguardarMensagem()
+        {
+            try
+            {
+                while (true)
+                {
+                    Server.ValidarMensagem(_usuarioAtual, _leitorConexao.ReadLine());
+                }
+            }
+            catch (Exception)
+            {
+                RemoverUsuario(_usuarioAtual);
+            }
         }
 
         private void RemoverUsuario(string usuarioAtual)
@@ -80,21 +94,6 @@ namespace Servidor
                 Server.Usuarios.Remove(usuarioAtual);
                 Server.EnviarMensagemAdmin($"{usuarioAtual} se desconectou (" +
                     $"{DateTime.Now:HH:mm}).");
-            }
-        }
-
-        private void AguardarMensagem()
-        {
-            try
-            {
-                while ((_resposta = _leitorConexao.ReadLine()) != null)
-                {
-                    Server.ValidarMensagem(_usuarioAtual, _resposta);
-                }
-            }
-            catch (Exception)
-            { 
-                RemoverUsuario(_usuarioAtual);
             }
         }
 
