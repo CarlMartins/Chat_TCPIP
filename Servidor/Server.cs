@@ -125,8 +125,10 @@ namespace Servidor
         {
             try
             {
-                string path = @$"C:\Users\{Environment.UserName}" +
-                @$"\Desktop\Backup";
+                //string path = @$"C:\Users\{Environment.UserName}" +
+                //@$"\Desktop\Backup";
+
+                string path = $@"{Directory.GetCurrentDirectory()}\Backup";
 
                 if (Directory.Exists(path) == false)
                 {
