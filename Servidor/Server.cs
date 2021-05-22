@@ -109,14 +109,13 @@ namespace Servidor
         public void FecharServidor()    
         {
             _servidorRodando = false;
-            try
+            TcpClient[] clientesConectados = new TcpClient[Usuarios.Count];
+            Usuarios.Values.CopyTo(clientesConectados, 0);
+
+            foreach (TcpClient cliente in clientesConectados)
             {
-                foreach (TcpClient usuario in Usuarios.Values)
-                {
-                    usuario.Close();
-                }
-            }
-            catch {}
+                cliente.Close();
+            };
 
             ListenerServidor.Stop();
         }
@@ -125,9 +124,6 @@ namespace Servidor
         {
             try
             {
-                //string path = @$"C:\Users\{Environment.UserName}" +
-                //@$"\Desktop\Backup";
-
                 string path = $@"{Directory.GetCurrentDirectory()}\Backup";
 
                 if (Directory.Exists(path) == false)
