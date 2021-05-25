@@ -11,7 +11,6 @@ namespace Cliente
             InitializeComponent();
             txbMensagem.Focus();
             Client.StatusChanged += OnStatusChanged;
-            lblNomeUsuario.Text += Client._nomeUsuario;
         }
 
         private void Enviar()
@@ -46,7 +45,8 @@ namespace Cliente
 
             cbEmoticons.Items.Clear();
             var emotes = new Emoticons();
-
+            lblNomeUsuario.Text += Client.s_nomeUsuario;
+            Text = $"Chat - {Client.s_nomeUsuario}";
             foreach (var emote in emotes.Emotes)
             {
                 cbEmoticons.Items.Add(emote.ToString());

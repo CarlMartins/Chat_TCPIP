@@ -7,7 +7,7 @@ namespace Cliente
 {
     class Client
     {
-        public static string _nomeUsuario;
+        public static string s_nomeUsuario;
         private int _porta { get; }
 
         private string _enderecoIp { get; }
@@ -25,7 +25,7 @@ namespace Cliente
         {
             _enderecoIp = enderecoIp;
             _porta = porta;
-            _nomeUsuario = nomeUsuario;
+            s_nomeUsuario = nomeUsuario;
         }
 
         public void Conectar()
@@ -38,7 +38,7 @@ namespace Cliente
                 _escritorConexao = new StreamWriter(_tcpServidor.GetStream());
                 _leitorConexao = new StreamReader(_tcpServidor.GetStream());
 
-                _escritorConexao.WriteLine(_nomeUsuario);
+                _escritorConexao.WriteLine(s_nomeUsuario);
                 _escritorConexao.Flush();
 
                 RespostaLogin = _leitorConexao.ReadLine();

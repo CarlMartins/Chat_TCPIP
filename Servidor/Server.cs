@@ -120,7 +120,7 @@ namespace Servidor
             ListenerServidor.Stop();
         }
 
-        public static void CriarBackup(string texto)
+        public static void CriarBackup(string logMensagens)
         {
             try
             {
@@ -134,7 +134,7 @@ namespace Servidor
                 using (StreamWriter writer = File.CreateText($"{path}\\" +
                     $"{DateTime.Now:dd-MM-yyyy HHmmss}.txt"))
                 {
-                    writer.WriteLine(texto);
+                    writer.WriteLine(logMensagens);
                 }
             }
             catch { };

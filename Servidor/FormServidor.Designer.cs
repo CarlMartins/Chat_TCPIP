@@ -229,7 +229,7 @@ namespace ChatAPS
             this.btnEnviarMensagem.UseVisualStyleBackColor = true;
             this.btnEnviarMensagem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnEnviarMensagem_MouseClick);
             // 
-            // frmServidor
+            // FormServidor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -248,9 +248,9 @@ namespace ChatAPS
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.MaximizeBox = false;
-            this.Name = "frmServidor";
+            this.Name = "FormServidor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Servidor";
             ((System.ComponentModel.ISupportInitialize)(this.upDownPort)).EndInit();
             this.pnlMoverJanela.ResumeLayout(false);
             this.pnlMoverJanela.PerformLayout();

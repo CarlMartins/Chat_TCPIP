@@ -204,7 +204,6 @@ namespace Cliente
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormChat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
             this.Shown += new System.EventHandler(this.frmChat_Shown);
             this.pnlMoverJanela.ResumeLayout(false);
             this.pnlMoverJanela.PerformLayout();
