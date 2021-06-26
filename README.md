@@ -15,7 +15,7 @@
 
 ## About
 Application developed with C# and TCP Sockets for our college project. <br>
-The project was developed in brazilian portuguese, so the errors messages will also be.
+The project was developed in brazilian portuguese, so the error messages will also be.
 
 ## Technologies
 - [C#](https://docs.microsoft.com/pt-br/dotnet/csharp/)
