@@ -34,7 +34,7 @@ Here are the errors that are handled by our application:
 
 <br>
 
-- Server Side
+- Server side
   - Invalid IP
   - Port already in use
 
