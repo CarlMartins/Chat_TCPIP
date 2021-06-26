@@ -23,7 +23,7 @@ The project was developed in brazilian portuguese, so the error messages will al
 - [TCP Sockets](https://en.wikipedia.org/wiki/Network_socket)
 
 ## Error handling
-Here are the errors there are treated by our application:
+Here are the errors that are handled by our application:
 - Client side
   - Invalid IP
   - Empty user name
