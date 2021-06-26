@@ -9,7 +9,8 @@
   <a href=#features>Features</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href=#error-handling>Error Handling</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href=#setup>Setup</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href=#images>Images</a>
+  <a href=#images>Images</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href=#developers>Developers</a>
 </p>
 
 ## About
@@ -64,4 +65,43 @@ $ Executables/Servidor/Servidor.exe
 <p align="center"> 
   <img src="https://i.imgur.com/mX5bgNK.png" alt="Program images"/>
 </p>
+
+<hr>
+
+## Developers
+
+<p class="developers-git">
+  <img id=github src="https://image.flaticon.com/icons/png/512/25/25231.png">
+
+  <a class="developer" href="https://github.com/CarlMartins">Carlos Martins</a>
+
+<a class="developer" href="https://github.com/yuryrodri">Yury Shelkovsky</a>
+</p>
+
+
+<p class="developers-linkedin"> 
+<img id="linkedin" src="https://image.flaticon.com/icons/png/512/174/174857.png">
+
+<a class="developer" href="https://www.linkedin.com/in/carlos-alberto-lemos-martins-oliveira-189b291b5/">Carlos Martins</a>
+
+<a class="developer" href="https://www.linkedin.com/in/yury-shelkovsky-a44529163/">Yury Shelkovsky</a>
+
+</p>
+
+<style>
+
+  #linkedin, #github {
+    width: 50px;
+    float: left;
+  }
+
+  .developer {
+    margin-left: 10px;
+  }
+  
+  .developers-git, .developers-linkedin {
+    margin-top: 25px;
+  }
+
+</style>
 
