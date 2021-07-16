@@ -84,7 +84,7 @@ Made by
 <p>
 
 Visit our LinkedIn
-<a href="https://www.linkedin.com/in/carlos-alberto-lemos-martins-oliveira-189b291b5/">Carlos Martins</a> |
+<a href="https://www.linkedin.com/in/CarlosMartinsOliveira/">Carlos Martins</a> |
 <a href="https://www.linkedin.com/in/yury-shelkovsky-a44529163/">Yury Shelkovsky</a>
 </p>
 
